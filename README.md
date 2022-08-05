@@ -1,6 +1,9 @@
+
+
 # OSCP
 OSCP / CTF
 
+<code>
 ENUM
 
 Portscan all Ports
@@ -42,6 +45,7 @@ find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 Crack Password with John
 unshadow passwd.txt shadow.txt > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
-  
+
+  </code>
   
 
