@@ -255,6 +255,19 @@ SNMP (Port 161)
 snmp-check 192.168.120.94
 ```
 
+SMB (Port 138, 139, 445)
+```
+smbmap -H 192.168.52.43
+smbclient -L <ip>
+
+smbclient -L 192.168.1.40
+smbclient //192.168.1.40/guest
+get file.txt
+
+smbclient -L //192.168.52.43/HELPDESK --user HELPDESK/admin
+
+```
+
 REFS
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings
