@@ -3,8 +3,8 @@
 # OSCP
 OSCP / CTF
 
-```
 ENUM
+```
 Portscan all Ports
 sudo nmap -sS -p- <ip>
 
@@ -25,7 +25,8 @@ ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/config/FUZZ -t 500 -mc 200
 ```
 
-
+EXPLOIT
+```
 CVE / Exploit Search
 searchsploit <name>
 searchsploit -p <id>
@@ -39,14 +40,17 @@ php shell command
 
 upgrade shell
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
 
+PRIVESC
+```
 SUID BINARY
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 
 Crack Password with John
 unshadow passwd.txt shadow.txt > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
-
+```
 
 ```bash
 bash urlencode
