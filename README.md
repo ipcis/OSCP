@@ -110,7 +110,43 @@ find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 
 #Crack Password with John
 unshadow passwd.txt shadow.txt > unshadow.txt
-john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
+john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt
+
+#Print files with the line number where the string is found
+grep -rnw '/' -ie 'password' --color=always
+
+#Find files with SUID permission
+find / -perm -4000 -type f 2>/dev/null
+
+#Find files with open permissions
+find / -perm -777 -type f 2>/dev/null
+
+#Find files with SUID permission for current user
+    find / perm /u=s -user `whoami` 2>/dev/null
+    find / -user root -perm -4000 -print 2>/dev/null
+
+#Find files with writable permission for current user or current group
+    find / perm /u=w -user `whoami` 2>/dev/null
+    find / -perm /u+w,g+w -f -user `whoami` 2>/dev/null
+    find / -perm /u+w -user `whoami` 2>/dev/nul
+
+#Find directories with writable permissions for current user or current group
+    find / perm /u=w -type -d -user `whoami` 2>/dev/null
+    find / -perm /u+w,g+w -d -user `whoami` 2>/dev/null
+    
+#Post Exploit Enumeration
+    grep -rnw '/' -ie 'pass' --color=always
+    grep -rnw '/' -ie 'DB_PASS' --color=always
+    grep -rnw '/' -ie 'DB_PASSWORD' --color=always
+    grep -rnw '/' -ie 'DB_USER' --color=always
+
+#File Upload on linux systems via base64 encoding
+#Converting a file to base64:
+cat file2upload | base64
+
+#Once the file is converted to base64, you can just create a new file on the remote system and copy the base64 output of the above file into it. Next step would be to reverse the base64 to binary
+cat fileWithBase64Content | base64 -d > finalBinary
+
 ```
 
 ENCODING/DECODING
@@ -164,6 +200,11 @@ BASH, SETUP and Prep Stuff
 # vim visual mode
 vim disable visual mode
 :set mouse-=a
+```
+
+SNMP (Port 161)
+```
+snmp-check 192.168.120.94
 ```
 
 REFS
