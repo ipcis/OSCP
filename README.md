@@ -52,6 +52,7 @@ unshadow passwd.txt shadow.txt > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
 ```
 
+ENCODING/DECODING
 ```bash
 bash urlencode
 echo $( php -r "echo urlencode('Start: #1, Zeichen {13/24} Ende();');"; )
