@@ -2,6 +2,10 @@
 
 # OSCP / CTF
 
+FLAGS
+```bash
+"c:\\users\\administrator\\desktop\\proof.txt"
+```
 
 ENUM
 ```bash
