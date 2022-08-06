@@ -2,6 +2,12 @@
 
 # OSCP / CTF
 
+GENERAL EXPLOITS
+```bash
+Windows Server 2008 - MS09_050
+Alternatively, since the target machine is running Windows Server 2008 sp1 32-bit, we could use the ms09_050_smb2_negotiate_func_index1 Metasploit Framework module.
+```
+
 FLAGS
 ```bash
 "c:\\users\\administrator\\desktop\\proof.txt"
