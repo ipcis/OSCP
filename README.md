@@ -3,7 +3,6 @@
 # OSCP
 OSCP / CTF
 
-<code>
 ENUM
 
 Portscan all Ports
@@ -47,8 +46,12 @@ unshadow passwd.txt shadow.txt > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
 
 
+```bash
 bash urlencode
 echo $( php -r "echo urlencode('Start: #1, Zeichen {13/24} Ende();');"; )
-  </code>
+#!/bin/bash
+echo $( php -r "echo urlencode(\"$1\");"; )
+urlencode.sh 'string zum encodieren'
+```
   
 
