@@ -26,7 +26,7 @@ ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip
 ```
 
 EXPLOIT
-```
+```bash
 CVE / Exploit Search
 searchsploit <name>
 searchsploit -p <id>
@@ -43,7 +43,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
 PRIVESC
-```
+```bash
 SUID BINARY
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 
