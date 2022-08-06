@@ -3,8 +3,8 @@
 # OSCP
 OSCP / CTF
 
+```
 ENUM
-
 Portscan all Ports
 sudo nmap -sS -p- <ip>
 
@@ -23,6 +23,8 @@ gobuster -t 100 dir -w big.txt -u http://<host>
   
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/FUZZ -t 500
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/config/FUZZ -t 500 -mc 200
+```
+
 
 CVE / Exploit Search
 searchsploit <name>
