@@ -244,6 +244,10 @@ BASH, SETUP and Prep Stuff
 # vim visual mode
 vim disable visual mode
 :set mouse-=a
+
+one-liner
+echo "set mouse-=a" >> ~/.vimrc 
+
 ```
 
 SNMP (Port 161)
