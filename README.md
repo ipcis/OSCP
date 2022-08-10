@@ -32,6 +32,7 @@ gobuster -t 100 dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.
 https://github.com/danielmiessler/SecLists
 #big wordlist:
 wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/dirsearch.txt
+wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
 gobuster -t 100 dir -w big.txt -u http://<host>
   
 ffuf -c -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt -u http://<ip>/FUZZ -t 500
