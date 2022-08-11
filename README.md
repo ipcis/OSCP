@@ -134,6 +134,9 @@ msfvenom -p windows/x64/messagebox TEXT=CoreThreat TITLE=PWN -f raw -o SHELLCODE
 
 PRIVESC
 ```bash
+# Tools / Script
+https://www.securitysift.com/download/linuxprivchecker.py
+
 #SUID BINARY
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
 
