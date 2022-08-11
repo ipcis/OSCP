@@ -2,6 +2,9 @@
 
 # OSCP / CTF
 
+OTHER RESSOURCES
+https://github.com/R0B1NL1N/OSCP-note
+
 GENERAL EXPLOITS
 ```bash
 Windows Server 2008 - MS09_050
