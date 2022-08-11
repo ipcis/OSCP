@@ -386,6 +386,18 @@ snmpwalk -c public -v1 10.11.1.14 1.3.6.1.2.1.6.13.1.3
 snmpwalk -c public -v1 10.11.1.50 1.3.6.1.2.1.25.6.3.1.2
 ```
 
+FTP
+```
+# show hidden files
+ls -lisah 
+
+# download multiply files
+prompt
+mget *.*
+```
+
+
+
 DNS (Port 53)
 ```
 host www.site.com
