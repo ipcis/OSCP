@@ -12,6 +12,7 @@ https://github.com/CountablyInfinite/oscp_cheatsheet
 https://www.buaq.net/go-98074.html
 https://blog.adithyanak.com/oscp-preparation-guide
 https://ippsec.rocks/?#
+https://medium.com/@GromHacks/guide-to-the-2022-oscp-exam-on-m1-with-active-directory-d8b4ce30f4f3
 ```
 
 GENERAL EXPLOITS
