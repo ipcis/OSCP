@@ -7,6 +7,7 @@ https://github.com/R0B1NL1N/OSCP-note
 https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
 https://gtfobins.github.io/#%20+SUID
 https://book.hacktricks.xyz/linux-hardening/privilege-escalation
+https://github.com/CountablyInfinite/oscp_cheatsheet
 
 GENERAL EXPLOITS
 ```bash
