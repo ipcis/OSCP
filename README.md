@@ -10,6 +10,7 @@ https://gtfobins.github.io/#%20+SUID
 https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 https://github.com/CountablyInfinite/oscp_cheatsheet
 https://www.buaq.net/go-98074.html
+https://blog.adithyanak.com/oscp-preparation-guide
 ```
 
 GENERAL EXPLOITS
