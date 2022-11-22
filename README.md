@@ -434,6 +434,7 @@ vim disable visual mode
 
 one-liner
 echo "set mouse-=a" >> ~/.vimrc 
+echo "syntax on" >> ~/.vimrc 
 
 ```
 
