@@ -522,3 +522,9 @@ REFS
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings
 ```
+
+Active Directory
+```
+[https://github.com/swisskyrepo/PayloadsAllTheThings](https://0xdarkvortex.dev/active-directory-penetration-dojo-ad-environment-enumeration-1/)
+```
+
