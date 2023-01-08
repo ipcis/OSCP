@@ -47,6 +47,7 @@ dirb http://www.site.com -r -z 10
 gobuster -t 100 dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<host>
 https://github.com/danielmiessler/SecLists
 #big wordlist:
+https://github.com/swisskyrepo/PayloadsAllTheThings
 wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/dirsearch.txt
 wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
 gobuster -t 100 dir -w big.txt -u http://<host>
