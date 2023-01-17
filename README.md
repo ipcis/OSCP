@@ -2,6 +2,16 @@
 
 # OSCP / CTF
 
+NMAP to HTML-Report
+```
+wget https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl
+
+nmap -sS -T4 -A -sC -oA scanme --stylesheet nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org
+
+xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
+```
+
+
 OTHER RESSOURCES
 ```
 https://github.com/R0B1NL1N/OSCP-note
