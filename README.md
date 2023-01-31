@@ -16,6 +16,12 @@ ELEVATE TO SYSTEM
 PsExec.exe -s -i cmd.exe
 ```
 
+NCAT - UD SHELL
+```
+[PsExec.exe -s -i cmd.exe](https://github.com/cyberisltd/NcatPortable/blob/master/ncat.exe)
+```
+
+
 OTHER RESSOURCES
 ```
 https://github.com/R0B1NL1N/OSCP-note
