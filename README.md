@@ -11,6 +11,10 @@ nmap -sS -T4 -A -sC -oA scanme --stylesheet nmap-bootstrap.xsl scanme.nmap.org s
 xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 ```
 
+ELEVATE TO SYSTEM
+```
+PsExec.exe -s -i cmd.exe
+```
 
 OTHER RESSOURCES
 ```
