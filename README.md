@@ -37,6 +37,13 @@ If this returns Pwn3d, then you can leverage EvilWinRM to get the shell.
 evil-winrm -i <target> -u <username> -p <password>
 ```
 
+CHANGE PW REMOTE DC
+```
+If you’re able to get valid user credentials, but you’re unable to login because the password has expired and/or needs to be changed, you can leverage this tool in Kali Linux.
+
+smbpasswd -U <username> -r <domainController>
+```
+
 EXPORT LIST DOMAIN-USERS
 ```
 # store the results in an array.
