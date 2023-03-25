@@ -26,6 +26,12 @@ ENUM USERS DOMAIN-CONTROLLER
 nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
 ```
 
+CRACKMAPEXEC PASSWORD SPRAYING
+```
+crackmapexec smb <targetIP> --pass-pol
+crackmapexec smb <targetIP> --pass-pol -u '' -p ''
+```
+
 EXPORT LIST DOMAIN-USERS
 ```
 # store the results in an array.
