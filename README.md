@@ -21,6 +21,10 @@ NCAT - UD SHELL
 [PsExec.exe -s -i cmd.exe](https://github.com/cyberisltd/NcatPortable/blob/master/ncat.exe)
 ```
 
+ENUM USERS DOMAIN-CONTROLLER
+```
+nmap -p88 --script krb5-enum-users --script-args krb5-enumusers.realm="cyberspacekittens.local",userdb=/opt/userlist.txt <Domain Controller IP>
+```
 
 OTHER RESSOURCES
 ```
