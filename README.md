@@ -24,6 +24,13 @@ $file-encode = [System.Text.Encoding]::UTF8.GetBytes($file-contents)
 echo -n <base64String> | base64 -d > filename.txt
 ```
 
+NMAP NSE
+```
+locate -r nse$|grep ldap
+
+nmap -p 389 --script ldap-search -Pn 10.10.10.107
+```
+
 ELEVATE TO SYSTEM
 ```
 PsExec.exe -s -i cmd.exe
