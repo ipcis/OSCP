@@ -2,6 +2,11 @@
 
 # OSCP / CTF
 
+ZeroLogon - CVE-2020-1472
+```
+https://github.com/SecuraBV/CVE-2020-1472
+```
+
 NMAP to HTML-Report
 ```
 wget https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl
