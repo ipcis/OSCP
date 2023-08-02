@@ -2,6 +2,32 @@
 
 # OSCP / CTF
 
+
+Portforwarding Tools
+```
+socat (source code)
+this command listen on port 5050 and forward all to port 2020
+
+socat tcp-l:5050,fork,reuseaddr tcp:127.0.0.1:2020
+ncat readmore
+Ncat is a feature-packed networking utility which reads and writes data across networks from the command line. Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat. It
+
+ncat -l localhost 8080 --sh-exec "ncat example.org 80"
+And you can use another tools:
+
+goproxy: (download source code or bin file)
+Listen on port 1234 and forward it to port 4567 on address "1.1.1.1"
+
+./proxy tcp -p ":1234" -T tcp -P "1.1.1.1:4567"
+gost (Download source code and bin) ENGLISH readme
+Listen on port 1234 and forward it to port 4567 on address "1.1.1.1" source
+
+./gost -L tcp://:1234/1.1.1.1:4567
+redir (source code)
+
+./redir :1234 1.1.1.1:5678
+```
+
 OSCP EXAM TIPS TRICKS
 ```
 
