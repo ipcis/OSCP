@@ -16,6 +16,10 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20an
 https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
 ```
 
+```
+https://github.com/dipsec/Offensive-Security-OSCP-Cheatsheets-1/blob/master/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-password-spraying.md
+```
+
 RED TEAM AD KURS
 ```
 #Find all machines on the current domain where the current user has local admin access
