@@ -12,6 +12,37 @@ https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
 ```
 
 RED TEAM AD KURS
+```
+#Find all machines on the current domain where the current user has local admin access
+Test-AdminAccess –Verbose
+
+
+#Tools
+https://raw.githubusercontent.com/admin0987654321/admin1/master/Find-WMILocalAdminAccess.ps1
+Find-WMILocalAdminAccess.ps1 
+https://github.com/samratashok/nishang/blob/master/Backdoors/Set-RemotePSRemoting.ps1
+FindPSRemotingLocalAdminAccess.ps1
+
+
+#Find local admins on all machines of the domain 
+#(needs administrator privs on non-dc machines).
+Find-DomainLocalGroupMember –Verbose
+
+
+#Find computers where a domain admin (or specified user/group) has sessions:
+Find-DomainUserLocation
+Find-DomainUserLocation -GroupName "RDPUsers"
+
+
+#To confirm admin access
+Find-DomainUserLocation -CheckAccess
+
+
+Find computers where a domain admin is logged-in.
+Find-DomainUserLocation -Stealth
+```
+
+
 
 PrintSpoofer
 ```
