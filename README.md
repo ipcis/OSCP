@@ -2,6 +2,17 @@
 
 # OSCP / CTF
 
+OSCP LINKS
+```
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md#tools
+```
+
+```
+https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
+```
+
+```
+```
 
 Portforwarding Tools
 ```
