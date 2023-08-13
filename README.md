@@ -26,6 +26,8 @@ show membership groups of account
 get-netgroup -memberidentity svc-alfresco
 
 Get-NetGroup "domain admins"
+
+Get-ADGroupMember "Domain Admins" -recursive | Select-Object name
 ```
 CyberChef
 ```
