@@ -24,6 +24,8 @@ Get-ADGroup -filter * | out-host -paging
 
 show membership groups of account
 get-netgroup -memberidentity svc-alfresco
+
+Get-NetGroup "domain admins"
 ```
 CyberChef
 ```
