@@ -34,6 +34,8 @@ Get-ADGroupMember "Domain Admins" -recursive | Select-Object name
 add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 
 net user svc-alfresco /domain
+
+net user buser Passw0rd /add /domain
 ```
 CyberChef
 ```
