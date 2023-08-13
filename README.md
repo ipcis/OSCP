@@ -40,6 +40,11 @@ net user buser Passw0rd /add /domain
 net group "Exchange Windows Permissions" buser /add
 
 net localgroup "Remote Management Users" buser /add
+
+
+
+$password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ('htb\buser', $password)
 ```
 CyberChef
 ```
