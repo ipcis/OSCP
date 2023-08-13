@@ -21,6 +21,9 @@ Get-ADGroup -filter *
 
 Paging - more - equi
 Get-ADGroup -filter * | out-host -paging
+
+show membership groups of account
+get-netgroup -memberidentity svc-alfresco
 ```
 CyberChef
 ```
