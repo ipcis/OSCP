@@ -32,6 +32,8 @@ Get-ADGroupMember "Domain Admins" -recursive | Select-Object name
  Get-NetGroup | findstr -i samaccount
 
 add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
+
+net user svc-alfresco /domain
 ```
 CyberChef
 ```
