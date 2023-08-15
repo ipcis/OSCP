@@ -5,6 +5,10 @@
 get ldap with description and info attributes
 ```
 ldapsearch -H ldap://10.10.10.169:3268 -x -LLL -s sub -b "DC=megabank,DC=local"
+
+rpcclient -U "" -N 10.10.10.169
+rpcclient $> enumdomusers
+queryuser 0x457
 ```
 
 HTB writeups
