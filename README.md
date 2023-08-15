@@ -2,6 +2,14 @@
 
 # OSCP / CTF
 
+LPE
+```
+waldo@admirer:~$ id && hostname
+uid=1000(waldo) gid=1000(waldo) groups=1000(waldo),1001(admins)
+admirer
+waldo@admirer:~$ sudo -l
+```
+
 Hydra Brute SSH
 ```
 hydra -L users -P passwords 10.10.10.187 ssh
