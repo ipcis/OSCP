@@ -9,6 +9,10 @@ ldapsearch -H ldap://10.10.10.169:3268 -x -LLL -s sub -b "DC=megabank,DC=local"
 rpcclient -U "" -N 10.10.10.169
 rpcclient $> enumdomusers
 queryuser 0x457
+
+
+smbclient -U melanie -L //10.10.10.169/
+password reuse
 ```
 
 HTB writeups
