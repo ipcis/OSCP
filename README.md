@@ -3,6 +3,13 @@
 # OSCP / CTF
 
 
+Enumerate SMB shares without credentials
+```
+smbclient -N -L \\\\<server_IP>\\
+or
+smbmap -d <domain> -L -H <IP>
+```
+
 Enumerating users on a Windows domain with rpcclient (without credentials)
 ```
 rpcclient -U "" -N <ip>
