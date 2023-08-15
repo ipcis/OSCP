@@ -2,6 +2,14 @@
 
 # OSCP / CTF
 
+Copying an entire SMB folder recursively using smbclient:
+```
+Connect using: smbclient -U <user> \\\\<ip>\\<folder> <password>
+smb: tarmode 
+smb: recurse 
+smb: prompt 
+smb: mget <folder_to_copy>
+```
 
 Enumerate SMB shares without credentials
 ```
